@@ -1,0 +1,31 @@
+[gd_scene load_steps=3 format=3 uid="uid://wavhv42poeui"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_krv74"]
+size = Vector2(96, 209)
+
+[sub_resource type="BoxMesh" id="BoxMesh_341l1"]
+
+[node name="Platform_01" type="StaticBody2D"]
+position = Vector2(32, -56)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(576, 536.5)
+shape = SubResource("RectangleShape2D_krv74")
+
+[node name="Dirt" type="MeshInstance2D" parent="."]
+modulate = Color(0.357244, 0.244386, 0.108552, 1)
+position = Vector2(575.125, 564)
+scale = Vector2(100, 168)
+mesh = SubResource("BoxMesh_341l1")
+
+[node name="Grass" type="MeshInstance2D" parent="."]
+modulate = Color(5.89602e-07, 0.330289, 0.128615, 1)
+position = Vector2(576, 460)
+scale = Vector2(100, 40)
+mesh = SubResource("BoxMesh_341l1")
+
+[node name="Outline" type="MeshInstance2D" parent="."]
+modulate = Color(8.42288e-08, 0.11049, 0.0255858, 1)
+position = Vector2(576, 436)
+scale = Vector2(100, 7.99999)
+mesh = SubResource("BoxMesh_341l1")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://cta4jwfba21jh"]
+[gd_scene load_steps=17 format=3 uid="uid://cta4jwfba21jh"]
 
 [ext_resource type="Script" path="res://level_manager.gd" id="1_b5v07"]
 [ext_resource type="PackedScene" uid="uid://d0cbj5qauw4wc" path="res://level_BASE.tscn" id="2_ucmec"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://character_body_2d.gd" id="4_oki5n"]
 [ext_resource type="PackedScene" uid="uid://3r86smok52tq" path="res://Levels/level_02.tscn" id="4_rt8e8"]
 [ext_resource type="PackedScene" uid="uid://q2or2r2ebnck" path="res://Levels/level_03.tscn" id="5_ccilv"]
+[ext_resource type="PackedScene" uid="uid://bcsct17ys5c2s" path="res://Levels/level_04.tscn" id="6_fhtsi"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1ghno"]
 radius = 32.0
@@ -53,7 +54,7 @@ fill_from = Vector2(0.5, 0.5)
 [node name="LevelManager" type="Node" parent="GameManager"]
 unique_name_in_owner = true
 script = ExtResource("1_b5v07")
-levels_array = Array[PackedScene]([ExtResource("2_ucmec"), ExtResource("3_xitwu"), ExtResource("4_rt8e8"), ExtResource("5_ccilv")])
+levels_array = Array[PackedScene]([ExtResource("2_ucmec"), ExtResource("3_xitwu"), ExtResource("4_rt8e8"), ExtResource("5_ccilv"), ExtResource("6_fhtsi")])
 
 [node name="UIManager" type="Node" parent="GameManager"]
 unique_name_in_owner = true

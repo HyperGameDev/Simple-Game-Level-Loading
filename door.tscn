@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://door.gd" id="1_7auao"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l327n"]
-size = Vector2(24, 96)
+size = Vector2(94, 152)
 
 [sub_resource type="BoxMesh" id="BoxMesh_x0u4u"]
 
@@ -13,7 +13,7 @@ size = Vector2(24, 96)
 script = ExtResource("1_7auao")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0.12505, -75.375)
+position = Vector2(-1, -76)
 shape = SubResource("RectangleShape2D_l327n")
 
 [node name="Door" type="MeshInstance2D" parent="."]
@@ -27,3 +27,31 @@ modulate = Color(1, 0.65098, 0, 1)
 position = Vector2(-21.875, -75.375)
 scale = Vector2(24.2773, 25.25)
 mesh = SubResource("SphereMesh_7xi8e")
+
+[node name="Label_Level" type="Label" parent="."]
+unique_name_in_owner = true
+offset_left = -13.0
+offset_top = -148.0
+offset_right = 13.0
+offset_bottom = -91.0
+theme_override_colors/font_color = Color(0.329412, 0.188235, 0.184314, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/shadow_offset_y = 0
+theme_override_constants/outline_size = 15
+theme_override_font_sizes/font_size = 41
+text = "X"
+horizontal_alignment = 1
+
+[node name="Label_Activate" type="Label" parent="."]
+unique_name_in_owner = true
+visible = false
+offset_left = -76.0
+offset_top = -216.0
+offset_right = 67.0
+offset_bottom = -167.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0.169245, 0.169245, 0.169245, 1)
+theme_override_constants/outline_size = 40
+theme_override_font_sizes/font_size = 35
+text = "Open (E)"
+horizontal_alignment = 1

@@ -1,6 +1,7 @@
 class_name LevelManager extends Node
 
 @export var levels_array: Array[PackedScene]
+var game_begun: bool = false
 
 func _ready() -> void:
 	Globals.update_level.connect(_on_update_level)
@@ -8,6 +9,7 @@ func _ready() -> void:
 
 func load_first_level(level_destination):
 	Globals.update_level.emit(level_destination)
+	game_begun = true
 
 func _on_update_level(level_destination):
 	Globals.level = level_destination
@@ -17,14 +19,12 @@ func _on_update_level(level_destination):
 	change_levels()
 	Globals.update_player_state.emit(true,true)
 	
-	
 func change_levels():
 	var next_level: PackedScene = levels_array[Globals.level]
-	add_child(next_level.instantiate())
+	var current_level: CanvasLayer = next_level.instantiate()
+	add_child(current_level)
 	
-	if Globals.level > 1:
+	if game_begun:
 		get_children().pop_front().queue_free()
-	
-	var current_level: CanvasLayer = get_children()[0]
 
 	Globals.update_player_position.emit(current_level)

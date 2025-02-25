@@ -1,6 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://q2or2r2ebnck"]
+[gd_scene load_steps=6 format=3 uid="uid://q2or2r2ebnck"]
 
 [ext_resource type="PackedScene" uid="uid://d0cbj5qauw4wc" path="res://level_BASE.tscn" id="1_2oexh"]
+[ext_resource type="PackedScene" uid="uid://dyc51kmiq3115" path="res://door.tscn" id="2_83eu1"]
+[ext_resource type="PackedScene" uid="uid://wavhv42poeui" path="res://platform.tscn" id="3_onlrn"]
 
 [sub_resource type="Gradient" id="Gradient_jgdfu"]
 offsets = PackedFloat32Array(0.25, 0.65625, 1)
@@ -15,3 +17,33 @@ fill_to = Vector2(1, 1)
 
 [node name="Sky" parent="." index="0"]
 texture = SubResource("GradientTexture2D_l3tha")
+
+[node name="Door_01" parent="." index="2" instance=ExtResource("2_83eu1")]
+position = Vector2(168, 432)
+door_id = 2
+level_destination = 2
+
+[node name="Door_02" parent="." index="3" instance=ExtResource("2_83eu1")]
+position = Vector2(624, 288)
+door_id = 3
+level_destination = 4
+
+[node name="Door_03" parent="." index="4" instance=ExtResource("2_83eu1")]
+position = Vector2(1016, 432)
+door_id = 4
+level_destination = 4
+
+[node name="Platform_01" parent="." index="5" instance=ExtResource("3_onlrn")]
+position = Vector2(-144, -48)
+
+[node name="Platform_02" parent="." index="6" instance=ExtResource("3_onlrn")]
+position = Vector2(-48, -96)
+
+[node name="Platform_03" parent="." index="7" instance=ExtResource("3_onlrn")]
+position = Vector2(48, -144)
+
+[node name="Platform_04" parent="." index="8" instance=ExtResource("3_onlrn")]
+position = Vector2(144, -96)
+
+[node name="Platform_05" parent="." index="9" instance=ExtResource("3_onlrn")]
+position = Vector2(240, -48)

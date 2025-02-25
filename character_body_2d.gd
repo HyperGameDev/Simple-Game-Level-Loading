@@ -2,7 +2,7 @@ class_name Player extends CharacterBody2D
 
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
-
+var starting_position: Vector2
 
 var player_state: player_states
 enum player_states {
@@ -10,7 +10,7 @@ enum player_states {
 	ENABLED
 }
 
-var door_id_seen: int
+var door_id_seen: int = 0
 var level_destination_seen: int
 
 var player_door_state: player_door_states
@@ -20,6 +20,8 @@ enum player_door_states {
 }
 
 func _ready() -> void:
+	starting_position = global_position
+	
 	Globals.update_player_state.connect(_on_update_player_state)
 	Globals.update_player_position.connect(_on_update_player_position)
 
@@ -30,6 +32,7 @@ func _physics_process(delta: float) -> void:
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("Activate"):
 		if player_door_state == player_door_states.IS_AT_DOOR:
+			print("Level Destination: ",level_destination_seen)
 			Globals.update_level.emit(level_destination_seen)
 	
 func _on_update_player_state(should_enable,teleport_to_door):
@@ -45,9 +48,12 @@ func _on_update_player_state(should_enable,teleport_to_door):
 
 
 func _on_update_player_position(current_level):
+	print("Door ID Seen: ",door_id_seen)
+	
 	for node in current_level.get_children():
-		if node.name == "Door":
-			global_position
+		if node is Door:
+			if node.door_id == door_id_seen:
+				global_position = node.global_position
 
 
 func player_movement(delta):
