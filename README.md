@@ -4,6 +4,6 @@
 <li> Lýz</li>
 <li> Dormouse</li>
 <li> Precipire</li>
-<li> PawnXPaxn</li>
+<li> PawnXPawn</li>
 <li> DungeonMartian</li>
 <li> rulric</li>
