@@ -1,0 +1,50 @@
+[gd_scene load_steps=6 format=3 uid="uid://d0cbj5qauw4wc"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_7lba3"]
+
+[sub_resource type="Gradient" id="Gradient_a314b"]
+offsets = PackedFloat32Array(0.25, 0.65625, 1)
+colors = PackedColorArray(0, 0.371833, 0.97, 1, 0.04, 0.488, 1, 1, 0.407843, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_sy5wt"]
+gradient = SubResource("Gradient_a314b")
+fill_from = Vector2(1, 0)
+fill_to = Vector2(1, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qccwo"]
+size = Vector2(1152, 209)
+
+[sub_resource type="BoxMesh" id="BoxMesh_341l1"]
+
+[node name="Level_BASE" type="CanvasLayer"]
+layer = -1
+
+[node name="Sky" type="MeshInstance2D" parent="."]
+position = Vector2(576.75, 323.75)
+scale = Vector2(1150.5, 648.5)
+mesh = SubResource("QuadMesh_7lba3")
+texture = SubResource("GradientTexture2D_sy5wt")
+
+[node name="Ground" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground"]
+position = Vector2(576, 536.5)
+shape = SubResource("RectangleShape2D_qccwo")
+
+[node name="Dirt" type="MeshInstance2D" parent="Ground"]
+modulate = Color(0.357244, 0.244386, 0.108552, 1)
+position = Vector2(575.125, 564)
+scale = Vector2(1153.75, 168)
+mesh = SubResource("BoxMesh_341l1")
+
+[node name="Grass" type="MeshInstance2D" parent="Ground"]
+modulate = Color(5.89602e-07, 0.330289, 0.128615, 1)
+position = Vector2(576, 460)
+scale = Vector2(1153.75, 40)
+mesh = SubResource("BoxMesh_341l1")
+
+[node name="Outline" type="MeshInstance2D" parent="Ground"]
+modulate = Color(8.42288e-08, 0.11049, 0.0255858, 1)
+position = Vector2(576, 436)
+scale = Vector2(1153.75, 7.99999)
+mesh = SubResource("BoxMesh_341l1")

@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://3r86smok52tq"]
+
+[ext_resource type="PackedScene" uid="uid://d0cbj5qauw4wc" path="res://level_BASE.tscn" id="1_nfjsh"]
+
+[sub_resource type="Gradient" id="Gradient_m7wad"]
+offsets = PackedFloat32Array(0.25, 0.66, 1)
+colors = PackedColorArray(0.798594, 0.209075, 0, 1, 1, 0.46173, 0.119196, 1, 1, 1, 0.14902, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_btukx"]
+gradient = SubResource("Gradient_m7wad")
+fill_from = Vector2(1, 0)
+fill_to = Vector2(1, 1)
+
+[node name="Level_02" instance=ExtResource("1_nfjsh")]
+
+[node name="Sky" parent="." index="0"]
+texture = SubResource("GradientTexture2D_btukx")
+
+[node name="Dirt" parent="Ground" index="1"]
+modulate = Color(0.36, 0.36, 0.36, 1)
+
+[node name="Grass" parent="Ground" index="2"]
+modulate = Color(0.36, 0.21, 0, 1)

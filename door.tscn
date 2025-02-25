@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://dyc51kmiq3115"]
+
+[ext_resource type="Script" path="res://door.gd" id="1_7auao"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l327n"]
+size = Vector2(24, 96)
+
+[sub_resource type="BoxMesh" id="BoxMesh_x0u4u"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_7xi8e"]
+
+[node name="Door_01" type="Area2D"]
+script = ExtResource("1_7auao")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.12505, -75.375)
+shape = SubResource("RectangleShape2D_l327n")
+
+[node name="Door" type="MeshInstance2D" parent="."]
+modulate = Color(0.329412, 0.188235, 0.184314, 1)
+position = Vector2(-1, -77)
+scale = Vector2(96.25, 154)
+mesh = SubResource("BoxMesh_x0u4u")
+
+[node name="Handle" type="MeshInstance2D" parent="."]
+modulate = Color(1, 0.65098, 0, 1)
+position = Vector2(-21.875, -75.375)
+scale = Vector2(24.2773, 25.25)
+mesh = SubResource("SphereMesh_7xi8e")
