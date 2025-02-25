@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://d0cbj5qauw4wc"]
+[gd_scene load_steps=8 format=3 uid="uid://d0cbj5qauw4wc"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_7lba3"]
 
@@ -11,10 +11,15 @@ gradient = SubResource("Gradient_a314b")
 fill_from = Vector2(1, 0)
 fill_to = Vector2(1, 1)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_qccwo"]
-size = Vector2(1152, 209)
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_hbtqt"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_341l1"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_202ew"]
+normal = Vector2(1, 0)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_j2hq5"]
+normal = Vector2(-1, 0)
 
 [node name="Level_BASE" type="CanvasLayer"]
 layer = -1
@@ -27,13 +32,13 @@ texture = SubResource("GradientTexture2D_sy5wt")
 
 [node name="Ground" type="StaticBody2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground"]
-position = Vector2(576, 536.5)
-shape = SubResource("RectangleShape2D_qccwo")
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Ground"]
+position = Vector2(576, 432)
+shape = SubResource("WorldBoundaryShape2D_hbtqt")
 
 [node name="Dirt" type="MeshInstance2D" parent="Ground"]
 modulate = Color(0.357244, 0.244386, 0.108552, 1)
-position = Vector2(575.125, 564)
+position = Vector2(576, 564)
 scale = Vector2(1153.75, 168)
 mesh = SubResource("BoxMesh_341l1")
 
@@ -48,3 +53,13 @@ modulate = Color(8.42288e-08, 0.11049, 0.0255858, 1)
 position = Vector2(576, 436)
 scale = Vector2(1153.75, 7.99999)
 mesh = SubResource("BoxMesh_341l1")
+
+[node name="Walls" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls"]
+position = Vector2(2, 432)
+shape = SubResource("WorldBoundaryShape2D_202ew")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Walls"]
+position = Vector2(1153, 432)
+shape = SubResource("WorldBoundaryShape2D_j2hq5")

@@ -29,7 +29,6 @@ door_id = 1
 level_destination = 1
 
 [node name="Door_02" parent="." index="3" instance=ExtResource("2_tm2ge")]
-position = Vector2(960, 432)
-monitorable = false
+position = Vector2(968, 432)
 door_id = 2
 level_destination = 3

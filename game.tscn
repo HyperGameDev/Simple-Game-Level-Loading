@@ -1,16 +1,16 @@
-[gd_scene load_steps=17 format=3 uid="uid://cta4jwfba21jh"]
+[gd_scene load_steps=18 format=3 uid="uid://cta4jwfba21jh"]
 
 [ext_resource type="Script" path="res://level_manager.gd" id="1_b5v07"]
 [ext_resource type="PackedScene" uid="uid://d0cbj5qauw4wc" path="res://level_BASE.tscn" id="2_ucmec"]
 [ext_resource type="Script" path="res://ui.gd" id="3_n3ugl"]
 [ext_resource type="PackedScene" uid="uid://ctwq0gj6os1jj" path="res://Levels/level_01.tscn" id="3_xitwu"]
-[ext_resource type="Script" path="res://character_body_2d.gd" id="4_oki5n"]
+[ext_resource type="Script" path="res://player.gd" id="4_oki5n"]
 [ext_resource type="PackedScene" uid="uid://3r86smok52tq" path="res://Levels/level_02.tscn" id="4_rt8e8"]
 [ext_resource type="PackedScene" uid="uid://q2or2r2ebnck" path="res://Levels/level_03.tscn" id="5_ccilv"]
 [ext_resource type="PackedScene" uid="uid://bcsct17ys5c2s" path="res://Levels/level_04.tscn" id="6_fhtsi"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1ghno"]
-radius = 32.0
+radius = 25.0
 height = 144.0
 
 [sub_resource type="BoxMesh" id="BoxMesh_crsif"]
@@ -47,6 +47,10 @@ gradient = SubResource("Gradient_76cln")
 fill = 1
 fill_from = Vector2(0.5, 0.5)
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_f7yvh"]
+radius = 40.0
+height = 144.0
+
 [node name="Node2D" type="Node2D"]
 
 [node name="GameManager" type="Node" parent="."]
@@ -75,12 +79,30 @@ theme_override_constants/outline_size = 34
 theme_override_font_sizes/font_size = 61
 text = "Level X"
 
+[node name="Control_Activate" type="Control" parent="GameManager/UIManager/Canvas_UI"]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 0
+
+[node name="Label_Activate" type="Label" parent="GameManager/UIManager/Canvas_UI/Control_Activate"]
+unique_name_in_owner = true
+visible = false
+offset_left = -71.0
+offset_top = -30.0
+offset_right = 72.0
+offset_bottom = 19.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0.169245, 0.169245, 0.169245, 1)
+theme_override_constants/outline_size = 40
+theme_override_font_sizes/font_size = 35
+text = "Activate"
+horizontal_alignment = 1
+
 [node name="Player" type="CharacterBody2D" parent="."]
 position = Vector2(200, 360)
 script = ExtResource("4_oki5n")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
-unique_name_in_owner = true
 position = Vector2(0, -74)
 shape = SubResource("CapsuleShape2D_1ghno")
 
@@ -99,3 +121,10 @@ texture = SubResource("GradientTexture2D_3kon0")
 [node name="Wheel" type="Sprite2D" parent="Player"]
 position = Vector2(0, -30.9375)
 texture = SubResource("GradientTexture2D_6rvys")
+
+[node name="Area2D" type="Area2D" parent="Player"]
+unique_name_in_owner = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/Area2D"]
+position = Vector2(0, -74)
+shape = SubResource("CapsuleShape2D_f7yvh")

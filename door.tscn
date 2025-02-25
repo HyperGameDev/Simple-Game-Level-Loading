@@ -30,10 +30,9 @@ mesh = SubResource("SphereMesh_7xi8e")
 
 [node name="Label_Level" type="Label" parent="."]
 unique_name_in_owner = true
-offset_left = -13.0
-offset_top = -148.0
-offset_right = 13.0
-offset_bottom = -91.0
+offset_top = -152.0
+offset_right = 26.0
+offset_bottom = -95.0
 theme_override_colors/font_color = Color(0.329412, 0.188235, 0.184314, 1)
 theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
 theme_override_constants/shadow_offset_y = 0
@@ -42,18 +41,5 @@ theme_override_font_sizes/font_size = 41
 text = "X"
 horizontal_alignment = 1
 
-[node name="Label_Activate" type="Label" parent="."]
-unique_name_in_owner = true
-visible = false
-offset_left = -76.0
-offset_top = -216.0
-offset_right = 67.0
-offset_bottom = -167.0
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_colors/font_outline_color = Color(0.169245, 0.169245, 0.169245, 1)
-theme_override_constants/outline_size = 40
-theme_override_font_sizes/font_size = 35
-text = "Open (E)"
-horizontal_alignment = 1
-
-[node name="Timer" type="Timer" parent="."]
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(0, -184)
