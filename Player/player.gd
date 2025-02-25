@@ -4,7 +4,6 @@ class_name Player extends CharacterBody2D
 
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
-var starting_position: Vector2
 
 var player_state: player_states
 enum player_states {
@@ -22,8 +21,6 @@ enum player_door_states {
 }
 
 func _ready() -> void:
-	starting_position = global_position
-	
 	player_area.area_entered.connect(_on_area_entered)
 	player_area.area_exited.connect(_on_area_exited)
 	

@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=3 uid="uid://bcsct17ys5c2s"]
 
-[ext_resource type="PackedScene" uid="uid://d0cbj5qauw4wc" path="res://level_BASE.tscn" id="1_u3qp2"]
-[ext_resource type="PackedScene" uid="uid://wavhv42poeui" path="res://platform.tscn" id="2_2trm4"]
-[ext_resource type="PackedScene" uid="uid://dyc51kmiq3115" path="res://door.tscn" id="3_aelmn"]
+[ext_resource type="PackedScene" uid="uid://d0cbj5qauw4wc" path="res://Levels/level_BASE.tscn" id="1_u3qp2"]
+[ext_resource type="PackedScene" uid="uid://wavhv42poeui" path="res://Platforms/platform1.tscn" id="2_2trm4"]
+[ext_resource type="PackedScene" uid="uid://dyc51kmiq3115" path="res://Activatables/Door/door.tscn" id="3_aelmn"]
 
 [sub_resource type="Gradient" id="Gradient_4bray"]
 offsets = PackedFloat32Array(0.25, 0.65625, 1)
@@ -24,13 +24,13 @@ modulate = Color(0.319074, 0.00123917, 0.668591, 1)
 [node name="Grass" parent="Ground" index="2"]
 modulate = Color(0.487859, 6.73831e-06, 0.336524, 1)
 
-[node name="Platform_01" parent="." index="2" instance=ExtResource("2_2trm4")]
+[node name="Platform1_01" parent="." index="2" instance=ExtResource("2_2trm4")]
 position = Vector2(48, -144)
 
-[node name="Dirt" parent="Platform_01" index="1"]
+[node name="Dirt" parent="Platform1_01" index="1"]
 modulate = Color(0.319074, 0.00123917, 0.668591, 1)
 
-[node name="Grass" parent="Platform_01" index="2"]
+[node name="Grass" parent="Platform1_01" index="2"]
 modulate = Color(0.487859, 6.73831e-06, 0.336524, 1)
 
 [node name="Door_01" parent="." index="3" instance=ExtResource("3_aelmn")]
@@ -48,4 +48,4 @@ position = Vector2(1016, 432)
 door_id = 1
 level_destination = 1
 
-[editable path="Platform_01"]
+[editable path="Platform1_01"]

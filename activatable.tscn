@@ -1,5 +1,0 @@
-[gd_scene format=3 uid="uid://dcqdoa5u12cyf"]
-
-[node name="Activatable" type="Node2D"]
-
-[node name="Marker2D" type="Marker2D" parent="."]

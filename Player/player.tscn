@@ -1,0 +1,76 @@
+[gd_scene load_steps=11 format=3 uid="uid://wlpjvad1l20d"]
+
+[ext_resource type="Script" path="res://Player/player.gd" id="1_myc36"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1ghno"]
+radius = 25.0
+height = 144.0
+
+[sub_resource type="BoxMesh" id="BoxMesh_crsif"]
+
+[sub_resource type="Gradient" id="Gradient_sr28b"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0.548387, 0.645161)
+colors = PackedColorArray(0.380645, 0.380645, 0.380645, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_boq2s"]
+gradient = SubResource("Gradient_sr28b")
+fill = 2
+fill_from = Vector2(0.83105, 0.255708)
+fill_to = Vector2(0.96347, 0.0913242)
+
+[sub_resource type="Gradient" id="Gradient_2a1ec"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0.548387, 0.793548)
+colors = PackedColorArray(0.380645, 0.380645, 0.380645, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_3kon0"]
+gradient = SubResource("Gradient_2a1ec")
+fill = 2
+fill_from = Vector2(0.83105, 0.255708)
+fill_to = Vector2(0.96347, 0.0913242)
+
+[sub_resource type="Gradient" id="Gradient_76cln"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0.168831, 0.350649, 0.467532, 0.603896, 0.62987)
+colors = PackedColorArray(0.481789, 0.481789, 0.481789, 1, 0.197937, 0.197937, 0.197937, 1, 0, 0, 0, 1, 0, 0, 0, 0.493506, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_6rvys"]
+gradient = SubResource("Gradient_76cln")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_f7yvh"]
+radius = 40.0
+height = 144.0
+
+[node name="Player" type="CharacterBody2D"]
+position = Vector2(200, 360)
+script = ExtResource("1_myc36")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -74)
+shape = SubResource("CapsuleShape2D_1ghno")
+
+[node name="Body" type="MeshInstance2D" parent="."]
+position = Vector2(0, -70.9375)
+scale = Vector2(27.625, 49.0625)
+mesh = SubResource("BoxMesh_crsif")
+texture = SubResource("GradientTexture2D_boq2s")
+
+[node name="Head" type="MeshInstance2D" parent="."]
+position = Vector2(1.52588e-05, -110.938)
+scale = Vector2(55.25, 50.125)
+mesh = SubResource("BoxMesh_crsif")
+texture = SubResource("GradientTexture2D_3kon0")
+
+[node name="Wheel" type="Sprite2D" parent="."]
+position = Vector2(0, -30.9375)
+texture = SubResource("GradientTexture2D_6rvys")
+
+[node name="Area2D" type="Area2D" parent="."]
+unique_name_in_owner = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -74)
+shape = SubResource("CapsuleShape2D_f7yvh")

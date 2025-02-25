@@ -1,55 +1,14 @@
-[gd_scene load_steps=18 format=3 uid="uid://cta4jwfba21jh"]
+[gd_scene load_steps=10 format=3 uid="uid://cta4jwfba21jh"]
 
-[ext_resource type="Script" path="res://level_manager.gd" id="1_b5v07"]
-[ext_resource type="PackedScene" uid="uid://d0cbj5qauw4wc" path="res://level_BASE.tscn" id="2_ucmec"]
-[ext_resource type="Script" path="res://ui.gd" id="3_n3ugl"]
+[ext_resource type="Script" path="res://Managers/level_manager.gd" id="1_b5v07"]
+[ext_resource type="PackedScene" uid="uid://d0cbj5qauw4wc" path="res://Levels/level_BASE.tscn" id="2_ucmec"]
+[ext_resource type="Script" path="res://Managers/ui_manager.gd" id="3_n3ugl"]
 [ext_resource type="PackedScene" uid="uid://ctwq0gj6os1jj" path="res://Levels/level_01.tscn" id="3_xitwu"]
-[ext_resource type="Script" path="res://player.gd" id="4_oki5n"]
 [ext_resource type="PackedScene" uid="uid://3r86smok52tq" path="res://Levels/level_02.tscn" id="4_rt8e8"]
 [ext_resource type="PackedScene" uid="uid://q2or2r2ebnck" path="res://Levels/level_03.tscn" id="5_ccilv"]
 [ext_resource type="PackedScene" uid="uid://bcsct17ys5c2s" path="res://Levels/level_04.tscn" id="6_fhtsi"]
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1ghno"]
-radius = 25.0
-height = 144.0
-
-[sub_resource type="BoxMesh" id="BoxMesh_crsif"]
-
-[sub_resource type="Gradient" id="Gradient_sr28b"]
-interpolation_mode = 1
-offsets = PackedFloat32Array(0.548387, 0.645161)
-colors = PackedColorArray(0.380645, 0.380645, 0.380645, 1, 0, 0, 0, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_boq2s"]
-gradient = SubResource("Gradient_sr28b")
-fill = 2
-fill_from = Vector2(0.83105, 0.255708)
-fill_to = Vector2(0.96347, 0.0913242)
-
-[sub_resource type="Gradient" id="Gradient_2a1ec"]
-interpolation_mode = 1
-offsets = PackedFloat32Array(0.548387, 0.793548)
-colors = PackedColorArray(0.380645, 0.380645, 0.380645, 1, 0, 0, 0, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_3kon0"]
-gradient = SubResource("Gradient_2a1ec")
-fill = 2
-fill_from = Vector2(0.83105, 0.255708)
-fill_to = Vector2(0.96347, 0.0913242)
-
-[sub_resource type="Gradient" id="Gradient_76cln"]
-interpolation_mode = 1
-offsets = PackedFloat32Array(0.168831, 0.350649, 0.467532, 0.603896, 0.62987)
-colors = PackedColorArray(0.481789, 0.481789, 0.481789, 1, 0.197937, 0.197937, 0.197937, 1, 0, 0, 0, 1, 0, 0, 0, 0.493506, 1, 1, 1, 0)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_6rvys"]
-gradient = SubResource("Gradient_76cln")
-fill = 1
-fill_from = Vector2(0.5, 0.5)
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_f7yvh"]
-radius = 40.0
-height = 144.0
+[ext_resource type="Script" path="res://Managers/player_manager.gd" id="8_a7uxi"]
+[ext_resource type="PackedScene" uid="uid://wlpjvad1l20d" path="res://Player/player.tscn" id="9_56jql"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -87,6 +46,7 @@ anchors_preset = 0
 [node name="Label_Activate" type="Label" parent="GameManager/UIManager/Canvas_UI/Control_Activate"]
 unique_name_in_owner = true
 visible = false
+layout_mode = 0
 offset_left = -71.0
 offset_top = -30.0
 offset_right = 72.0
@@ -98,33 +58,12 @@ theme_override_font_sizes/font_size = 35
 text = "Activate"
 horizontal_alignment = 1
 
-[node name="Player" type="CharacterBody2D" parent="."]
-position = Vector2(200, 360)
-script = ExtResource("4_oki5n")
+[node name="PlayerManager" type="Node" parent="GameManager"]
+script = ExtResource("8_a7uxi")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
-position = Vector2(0, -74)
-shape = SubResource("CapsuleShape2D_1ghno")
-
-[node name="Body" type="MeshInstance2D" parent="Player"]
-position = Vector2(0, -70.9375)
-scale = Vector2(27.625, 49.0625)
-mesh = SubResource("BoxMesh_crsif")
-texture = SubResource("GradientTexture2D_boq2s")
-
-[node name="Head" type="MeshInstance2D" parent="Player"]
-position = Vector2(1.52588e-05, -110.938)
-scale = Vector2(55.25, 50.125)
-mesh = SubResource("BoxMesh_crsif")
-texture = SubResource("GradientTexture2D_3kon0")
-
-[node name="Wheel" type="Sprite2D" parent="Player"]
-position = Vector2(0, -30.9375)
-texture = SubResource("GradientTexture2D_6rvys")
-
-[node name="Area2D" type="Area2D" parent="Player"]
+[node name="Marker_StartPoint" type="Marker2D" parent="GameManager/PlayerManager"]
 unique_name_in_owner = true
+position = Vector2(200, 360)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/Area2D"]
-position = Vector2(0, -74)
-shape = SubResource("CapsuleShape2D_f7yvh")
+[node name="Player" parent="GameManager/PlayerManager" instance=ExtResource("9_56jql")]
+unique_name_in_owner = true

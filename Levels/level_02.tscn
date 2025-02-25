@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://3r86smok52tq"]
 
-[ext_resource type="PackedScene" uid="uid://d0cbj5qauw4wc" path="res://level_BASE.tscn" id="1_nfjsh"]
-[ext_resource type="PackedScene" uid="uid://dyc51kmiq3115" path="res://door.tscn" id="2_tm2ge"]
+[ext_resource type="PackedScene" uid="uid://d0cbj5qauw4wc" path="res://Levels/level_BASE.tscn" id="1_nfjsh"]
+[ext_resource type="PackedScene" uid="uid://dyc51kmiq3115" path="res://Activatables/Door/door.tscn" id="2_tm2ge"]
 
 [sub_resource type="Gradient" id="Gradient_m7wad"]
 offsets = PackedFloat32Array(0.25, 0.66, 1)
