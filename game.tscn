@@ -80,6 +80,7 @@ position = Vector2(200, 360)
 script = ExtResource("4_oki5n")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+unique_name_in_owner = true
 position = Vector2(0, -74)
 shape = SubResource("CapsuleShape2D_1ghno")
 

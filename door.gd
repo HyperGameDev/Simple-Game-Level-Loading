@@ -24,7 +24,7 @@ func _on_body_entered(body):
 func _on_body_exited(body):
 	if body is Player:
 		label_activate.visible = false
-		
-		body.player_door_state = Player.player_door_states.NOT_AT_DOOR
-		print("Player Exited Door ",door_id)
-		
+		if body.door_id_seen == door_id: ## Ensures player can't exit a door they haven't entered yet
+			
+			body.player_door_state = Player.player_door_states.NOT_AT_DOOR
+			print("Player Exited Door ",door_id)

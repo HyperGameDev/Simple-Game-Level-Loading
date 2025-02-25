@@ -55,3 +55,5 @@ theme_override_constants/outline_size = 40
 theme_override_font_sizes/font_size = 35
 text = "Open (E)"
 horizontal_alignment = 1
+
+[node name="Timer" type="Timer" parent="."]

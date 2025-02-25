@@ -15,9 +15,9 @@ func _on_update_level(level_destination):
 	Globals.level = level_destination
 	Globals.update_level_text.emit(Globals.level)
 	
-	Globals.update_player_state.emit(false,false)
+	Globals.update_player_state.emit(false) ##Disable Player
 	change_levels()
-	Globals.update_player_state.emit(true,true)
+	Globals.update_player_state.emit(true) ##Enable Player
 	
 func change_levels():
 	var next_level: PackedScene = levels_array[Globals.level]
@@ -26,5 +26,7 @@ func change_levels():
 	
 	if game_begun:
 		get_children().pop_front().queue_free()
+	else:
+		Globals.update_player_state.emit(true) ##Enable Player
 
 	Globals.update_player_position.emit(current_level)

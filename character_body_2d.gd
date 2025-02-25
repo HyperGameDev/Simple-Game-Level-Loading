@@ -1,5 +1,7 @@
 class_name Player extends CharacterBody2D
 
+@onready var collision: CollisionShape2D = %CollisionShape2D
+
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 var starting_position: Vector2
@@ -35,28 +37,33 @@ func _input(event: InputEvent) -> void:
 			print("Level Destination: ",level_destination_seen)
 			Globals.update_level.emit(level_destination_seen)
 	
-func _on_update_player_state(should_enable,teleport_to_door):
+func _on_update_player_state(should_enable) -> void:
 	if should_enable:
 		visible = true
+		set_collision_layer_value(1,true)
 		process_mode = PROCESS_MODE_INHERIT
 		player_state = player_states.ENABLED
+		print("Player Enabled")
 	
 	else:
 		visible = false
+		set_collision_layer_value(1,false)
 		process_mode = PROCESS_MODE_DISABLED
 		player_state = player_states.DISABLED
+		print("Player Disabled")
 
 
-func _on_update_player_position(current_level):
-	print("Door ID Seen: ",door_id_seen)
+func _on_update_player_position(current_level) -> void:
+	print("Player Teleporting from: ",global_position)
 	
 	for node in current_level.get_children():
 		if node is Door:
 			if node.door_id == door_id_seen:
 				global_position = node.global_position
+				print("Player Teleported to: ",global_position)
 
 
-func player_movement(delta):
+func player_movement(delta) -> void:
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 
